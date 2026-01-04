@@ -477,7 +477,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function verifyPromoCode(code) {
         // Single promo code - modify these values as needed
         const ACTIVE_PROMO_CODE = "CAN25";
-        const costummerCode = "RAR26"
+        const costummerCode = "RAM26"
         let DISCOUNT_PERCENTAGE = 0.10; // 10%
         
         if (code === ACTIVE_PROMO_CODE) {
