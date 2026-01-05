@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
             emailjs.send('to_kitchen', 'template_5di9epe', templateParams)
         }
         else if ( closed ) {
-            if ( 24 > hour > 6 ) {
+            if ( hour >= 6 && hour < 24  ) {
                 alert(`🌙 Nos fourneaux sont éteints ! \nLes commandes reprendront dès 12h00.`) 
             }
             else { alert(`🌙 Nos fourneaux sont éteints ! \nOn se repose pour mieux vous régaler demain. \nLes commandes reprendront dès 12h00. \nÀ demain pour votre prochain festin !`)
