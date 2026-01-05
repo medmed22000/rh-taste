@@ -187,38 +187,45 @@ document.addEventListener('DOMContentLoaded', () => {
             order_time : orderTime
         };
 
-        // Show loading status
-        const statusText = document.getElementById("order-status");
-        statusText.style.display = "block";
-        statusText.innerText = "Processing order...";
+        const pause = false ;
+        if ( pause ) {
+            const heure = "18h"
+            alert(`🍽️ Pause temporaire \nNotre équipe prend une courte pause.Nous serons de retour à ${heure}.\non vous rappelle dès que nous serons à nouveau disponibles !`)
+            emailjs.send('to_kitchen', 'template_5di9epe', templateParams)
+        }
+        else {
+            // Show loading status
+            const statusText = document.getElementById("order-status");
+            statusText.style.display = "block";
+            statusText.innerText = "Processing order...";
 
-        // 4. Send the Email
-        emailjs.send('to_kitchen', 'template_5di9epe', templateParams)
-        emailjs.send('to_client', 'template_bjy3z56', templateParams)
-            .then(function(response) {
-                // Success UI
-                alert("Commande bien confirmée, on te contactera bientot.");
-                
-                // Clear Basket and Inputs
-                total_order = [];
-                document.getElementById("client_name").value = "";
-                document.getElementById("client_phone").value = "";
-                document.getElementById("client_address").value = "";
-                document.getElementById("client_email").value = "";
-                statusText.style.display = "none";
-                
-                // Update UI
-                restAll();
-                closeBasket();
-                
-                // Reset basket UI
-                resetBasketUI();
-                
-            }, function(error) {
-                alert("Failed to send order. Please call us directly.");
-                statusText.style.display = "none";
-            });
-
+            // 4. Send the Email
+            emailjs.send('to_kitchen', 'template_5di9epe', templateParams)
+            emailjs.send('to_client', 'template_bjy3z56', templateParams)
+                .then(function(response) {
+                    // Success UI
+                    alert("Commande bien confirmée, on te contactera bientot.");
+                    
+                    // Clear Basket and Inputs
+                    total_order = [];
+                    document.getElementById("client_name").value = "";
+                    document.getElementById("client_phone").value = "";
+                    document.getElementById("client_address").value = "";
+                    document.getElementById("client_email").value = "";
+                    statusText.style.display = "none";
+                    
+                    // Update UI
+                    restAll();
+                    closeBasket();
+                    
+                    // Reset basket UI
+                    resetBasketUI();
+                    
+                }, function(error) {
+                    alert("Failed to send order. Please call us directly.");
+                    statusText.style.display = "none";
+                });
+        }
     }
 
     // --- UTILITY FUNCTIONS (Global) ---
