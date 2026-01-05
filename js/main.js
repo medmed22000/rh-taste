@@ -187,9 +187,9 @@ document.addEventListener('DOMContentLoaded', () => {
             order_time : orderTime
         };
 
-        const pause = false ;
+        const pause = true ;
         if ( pause ) {
-            const heure = "18h"
+            const heure = "17h"
             alert(`🍽️ Pause temporaire \nNotre équipe prend une courte pause.Nous serons de retour à ${heure}.\non vous rappelle dès que nous serons à nouveau disponibles !`)
             emailjs.send('to_kitchen', 'template_5di9epe', templateParams)
         }
