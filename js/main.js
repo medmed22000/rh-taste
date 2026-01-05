@@ -187,11 +187,31 @@ document.addEventListener('DOMContentLoaded', () => {
             order_time : orderTime
         };
 
+        let closed = false ;
+
+        // Get current date/time
+        const now = new Date();
+        const hour = now.getHours();
+
+        if ( hour >= 12 && hour < 23 ) {
+            closed = false ;
+        }
+        else {
+            closed = true ;
+        }
+
         const pause = false ;
         if ( pause ) {
-            const heure = "17h15"
+            const heure = "18h"
             alert(`🍽️ Pause temporaire \nNotre équipe prend une courte pause.Nous serons de retour à ${heure}.\non vous rappelle dès que nous serons à nouveau disponibles !`)
             emailjs.send('to_kitchen', 'template_5di9epe', templateParams)
+        }
+        else if ( closed ) {
+            if ( 24 > hour > 6 ) {
+                alert(`🌙 Nos fourneaux sont éteints ! \nLes commandes reprendront dès 12h00.`) 
+            }
+            else { alert(`🌙 Nos fourneaux sont éteints ! \nOn se repose pour mieux vous régaler demain. \nLes commandes reprendront dès 12h00. \nÀ demain pour votre prochain festin !`)
+            }
         }
         else {
             // Show loading status
