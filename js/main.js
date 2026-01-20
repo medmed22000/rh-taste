@@ -200,9 +200,9 @@ document.addEventListener('DOMContentLoaded', () => {
             closed = true ;
         }
 
-        const pause = false ;
+        const pause = true ;
         if ( pause ) {
-            const heure = "19h30"
+            const heure = "22h00"
             alert(`🍽️ Pause temporaire \nNotre équipe prend une courte pause.Nous serons de retour à ${heure}.\non vous rappelle dès que nous serons à nouveau disponibles !`)
             emailjs.send('to_kitchen', 'template_5di9epe', templateParams)
         }
